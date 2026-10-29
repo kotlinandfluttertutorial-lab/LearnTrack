@@ -149,30 +149,31 @@ if [ ! -f "$JSON_FILE" ]; then
 else
     COUNT_OK=true
 
+    # Schema: wrapper object {"topics": [...]}
     if command -v jq &>/dev/null; then
-        TOTAL=$(jq '. | length' "$JSON_FILE" 2>/dev/null || echo "0")
-        COMPLETED=$(jq '[.[] | select(.status == "completed")] | length' "$JSON_FILE" 2>/dev/null || echo "0")
-        NOT_STARTED=$(jq '[.[] | select(.status == "not_started")] | length' "$JSON_FILE" 2>/dev/null || echo "0")
-        OTHER=$(jq '[.[] | select(.status != "completed" and .status != "not_started")] | length' "$JSON_FILE" 2>/dev/null || echo "0")
+        TOTAL=$(jq '.topics | length' "$JSON_FILE" 2>/dev/null || echo "0")
+        COMPLETED=$(jq '[.topics[] | select(.status == "completed")] | length' "$JSON_FILE" 2>/dev/null || echo "0")
+        NOT_STARTED=$(jq '[.topics[] | select(.status == "not_started")] | length' "$JSON_FILE" 2>/dev/null || echo "0")
+        OTHER=$(jq '[.topics[] | select(.status != "completed" and .status != "not_started")] | length' "$JSON_FILE" 2>/dev/null || echo "0")
     elif command -v python3 &>/dev/null; then
         TOTAL=$(python3 -c "
 import json
-data = json.load(open('$JSON_FILE'))
+data = json.load(open('$JSON_FILE'))['topics']
 print(len(data))
 " 2>/dev/null || echo "0")
         COMPLETED=$(python3 -c "
 import json
-data = json.load(open('$JSON_FILE'))
+data = json.load(open('$JSON_FILE'))['topics']
 print(sum(1 for t in data if t.get('status') == 'completed'))
 " 2>/dev/null || echo "0")
         NOT_STARTED=$(python3 -c "
 import json
-data = json.load(open('$JSON_FILE'))
+data = json.load(open('$JSON_FILE'))['topics']
 print(sum(1 for t in data if t.get('status') == 'not_started'))
 " 2>/dev/null || echo "0")
         OTHER=$(python3 -c "
 import json
-data = json.load(open('$JSON_FILE'))
+data = json.load(open('$JSON_FILE'))['topics']
 print(sum(1 for t in data if t.get('status') not in ('completed','not_started')))
 " 2>/dev/null || echo "0")
     else

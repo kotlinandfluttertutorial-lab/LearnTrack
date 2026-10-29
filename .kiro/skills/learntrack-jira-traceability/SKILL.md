@@ -56,7 +56,9 @@ Report: `PASS` / `FAIL — <file>: <violation>` for each file.
 
 **`learntrack-stories.csv`** required columns:
 
-`Issue Key, Issue Type, Epic Link, Summary, Description, Acceptance Criteria, Priority, Labels, Story Points, Dependencies, Spec Reference, Design Reference, Test Reference`
+`Issue Type, Issue Key (proposed), Summary, Description, Acceptance Criteria, Priority, Labels, Epic Link, Dependencies, Story Points, Definition of Done`
+
+Note: The `(proposed)` suffix on `Issue Key` indicates these are not live Jira keys. The `Spec Reference`, `Design Reference`, and `Test Reference` columns are covered by the separate `learntrack-traceability.csv` and `learntrack-subtasks.csv` files.
 
 **`learntrack-subtasks.csv`** required columns:
 

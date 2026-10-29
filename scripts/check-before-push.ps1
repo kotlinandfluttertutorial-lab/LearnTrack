@@ -121,10 +121,12 @@ if (-not (Test-Path $JsonFile)) {
 } else {
     try {
         $jsonContent = Get-Content -Raw $JsonFile
-        $topics = $jsonContent | ConvertFrom-Json
+        $parsed = $jsonContent | ConvertFrom-Json
+        # Schema: wrapper object {"topics": [...]}
+        $topics = $parsed.topics
 
         if ($null -eq $topics -or -not ($topics -is [System.Array])) {
-            Write-Fail "learntrack_topics.json root element is not an array."
+            Write-Fail "learntrack_topics.json does not contain a 'topics' array. Expected schema: {`"topics`": [...]}."
         } else {
             $total       = $topics.Count
             $completed   = ($topics | Where-Object { $_.status -eq "completed" }).Count
