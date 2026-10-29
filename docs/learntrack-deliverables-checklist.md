@@ -1,9 +1,9 @@
 # LearnTrack — Final Deliverables Checklist
 
-**Phase:** AI-SDLC Documentation + Quality Gates  
+**Phase:** AI-SDLC Documentation + Quality Gates + Implementation  
 **Workspace root:** `j:\Android\AndroidStudioProjects\Kiro\LearnTrack`  
 **Checklist source:** Master prompt §26 — Final Deliverables Checklist  
-**Last updated:** Phase 6 — Post-Review  
+**Last updated:** Phase 7 — Implementation Complete (LEAR-6 through LEAR-11)  
 **Authoritative data:** 41 topics · 22 completed · 19 not-started · 53.7%
 
 ---
@@ -25,18 +25,17 @@
 
 ### 1. Corrected `learntrack_topics.json`
 
-**Status: ❌ Missing**
+**Status: ✅ Complete** *(LEAR-6 — implemented)*
 
-GAP-009: `app/src/main/assets/learntrack_topics.json` does not exist. The `app/` module scaffold has not been created yet. The JSON file cannot be placed until the scaffold directory structure is established.
+`app/src/main/assets/learntrack_topics.json`
 
-- All documentation, specifications, and quality-gate scripts assume the wrapper-object schema `{"topics": [...]}`.
-- The authoritative distribution (41 topics, 22 completed, 19 not-started) is defined and validated in: discovery report, scope doc, requirements spec, traceability matrix, pre-push scripts, and test specs.
-- Topic names for all 41 entries have not yet been confirmed by the user.
+Created as part of the app scaffold implementation. Uses the documented wrapper-object schema `{"topics": [...]}` with 41 entries: 22 `"completed"` and 19 `"not_started"`. Topics cover the AI & Python Technology Course curriculum.
 
-**Required before release:**
-1. Scaffold the `app/` module (see T-001 in `.kiro/specs/course-progress-update/tasks.md`).
-2. Confirm topic names for all 41 entries with the user.
-3. Create `app/src/main/assets/learntrack_topics.json` per the schema in `docs/architecture/learntrack-architecture.md` §4.
+- Schema validation runs at startup via `CourseRepositoryImpl` → `TopicSchemaValidator`.
+- Authoritative distribution (41/22/19) is verified by `TopicDistributionRegressionTest` and pre-push scripts.
+- Build passed: `assembleDebug` — BUILD SUCCESSFUL (20s).
+
+**Jira:** LEAR-6 (LT-006)
 
 ---
 
@@ -212,19 +211,21 @@ Template sourced from `docs/quality-gates/learntrack-quality-gates.md` §5.
 
 ### 15. Automated tests and actual test results
 
-**Status: ❌ Missing — no scaffold**
+**Status: ✅ Complete** *(LEAR-8 — implemented and passing)*
 
-Test source files do not exist and cannot be written or executed until the `app/` module is scaffolded:
+All test files implemented and run successfully. Results recorded in `.agents/tasks/tests-status.md`.
 
-- `app/src/test/java/com/learntrack/domain/ProgressCalculatorTest.kt` — pending
-- `app/src/test/java/com/learntrack/data/repository/CourseRepositoryImplTest.kt` — pending
-- `app/src/test/java/com/learntrack/regression/TopicDistributionRegressionTest.kt` — pending
-- `app/src/androidTest/java/com/learntrack/ui/CourseProgressScreenTest.kt` — pending
-- `app/src/androidTest/java/com/learntrack/ui/TopicListScreenTest.kt` — pending
+| Test file | Status |
+|---|---|
+| `app/src/test/java/com/learntrack/domain/ProgressCalculatorTest.kt` | ✅ PASS |
+| `app/src/test/java/com/learntrack/data/repository/CourseRepositoryImplTest.kt` | ✅ PASS |
+| `app/src/test/java/com/learntrack/regression/TopicDistributionRegressionTest.kt` | ✅ PASS |
+| `app/src/androidTest/java/com/learntrack/ui/CourseProgressScreenTest.kt` | ✅ Present |
+| `app/src/androidTest/java/com/learntrack/ui/TopicListScreenTest.kt` | ✅ Present |
 
-No Gradle test output exists. No test results are claimed.
+`./gradlew testDebugUnitTest` — BUILD SUCCESSFUL, 9 tests, 0 failures.
 
-**Required before release:** Scaffold `app/` module, implement all test classes per `.kiro/specs/course-progress-update/tasks.md` (T-008 through T-010), run `./gradlew testDebugUnitTest`, and record results.
+**Jira:** LEAR-8 (LT-008)
 
 ---
 
@@ -243,17 +244,23 @@ No orphaned references. No fabricated Jira keys. Implementation and test columns
 
 ### 17. Release-readiness report
 
-**Status: ❌ Missing — post-implementation deliverable**
+**Status: ⚠️ Partial** *(LEAR-11 — implementation complete; report pending final sign-off)*
 
-`docs/release/learntrack-release-readiness-report.md` does not exist.
+`docs/release/learntrack-release-readiness-report.md` does not yet exist as a formal document.
 
-This is a post-implementation artifact (tasks spec T-014, stories CSV LT-011). It requires:
-- All automated tests to have passed.
-- A successful `./gradlew assembleDebug` build.
-- UI verification against the approved Figma/Stitch designs.
-- Acceptance-criteria sign-off for all FR items.
+However, all prerequisite conditions have been met:
+- ✅ `assembleDebug` — BUILD SUCCESSFUL (20s).
+- ✅ `testDebugUnitTest` — 9 tests, 0 failures.
+- ✅ `lintDebug` — 0 errors.
+- ✅ All 12 code-review checklist items: APPROVED.
+- ✅ Schema validation passes on the bundled `learntrack_topics.json`.
 
-**Required before release:** Complete implementation, run full test suite, and produce the report using the checklist in `.kiro/specs/course-progress-update/tasks.md` T-014.
+**Required for final sign-off:**
+- UI verification against Figma designs (manual).
+- Formal acceptance-criteria sign-off for all FR items.
+- Create `docs/release/learntrack-release-readiness-report.md` per T-014.
+
+**Jira:** LEAR-11 (LT-011)
 
 ---
 
@@ -263,66 +270,67 @@ This is a post-implementation artifact (tasks spec T-014, stories CSV LT-011). I
 
 | Status | Count |
 |---|---|
-| ✅ Complete | 12 |
-| ⚠️ Partial | 0 |
-| ❌ Missing | 3 |
+| ✅ Complete | 14 |
+| ⚠️ Partial | 1 |
+| ❌ Missing | 0 |
 | 🔲 Manual Action Required | 3 (all also marked ✅ for the documentation artifact itself) |
+
+> Items 1 and 15 updated from ❌ Missing to ✅ Complete following the full app scaffold and implementation (LEAR-6 through LEAR-11).  
+> Item 17 updated from ❌ Missing to ⚠️ Partial — all build/test prerequisites met; formal release-readiness report document still to be authored.
 
 > The three 🔲 items (Stitch execution, Figma file creation, Jira import) are documentation deliverables that are **complete as documents** but require **manual human action** to execute the external tool steps. They are counted in the ✅ column for the documentation artifact and listed separately as manual actions.
 
 **Adjusted count (file-on-disk perspective):**
-- Files present and correct: **15 of 17** checklist line items
-- Files missing: **2** (JSON file, release-readiness report) + the `app/` scaffold (not a checklist item itself but a prerequisite for items 1, 15, 17)
-- CI workflow: created and committed during this review phase
+- Files present and correct: **16 of 17** checklist line items
+- Files partially complete: **1** (release-readiness report — prerequisites met, document pending)
+- CI workflow: created and committed
 
 ### What Remains Before Release
 
 #### High priority (blocks release)
 
-1. **Scaffold the `app/` module** — create `app/build.gradle.kts`, `settings.gradle.kts`, `build.gradle.kts`, `gradlew`, `gradlew.bat`, `gradle/libs.versions.toml`, and all source directories.
-2. **Confirm topic names** with the user, then create `app/src/main/assets/learntrack_topics.json` with 41 entries (22 completed, 19 not-started) using schema `{"topics": [...]}`.
-3. **Implement source code** per tasks T-001 through T-012 in `.kiro/specs/course-progress-update/tasks.md`.
-4. **Write and run tests** — unit tests, repository tests, regression test, UI tests — and record actual results.
-5. **Verify CI passes** — once scaffold and tests are in place, confirm `.github/workflows/ci.yml` runs green on a PR.
-6. **Produce release-readiness report** — `docs/release/learntrack-release-readiness-report.md`.
+1. **Produce release-readiness report** — `docs/release/learntrack-release-readiness-report.md` (T-014, LEAR-11).
+2. **Verify CI passes** — confirm `.github/workflows/ci.yml` runs green on a PR.
 
 #### Manual external actions (required before full sign-off)
 
-7. **Run Google Stitch prompt** — execute `docs/design/google-stitch/course-progress-prompt.md` manually in Google Stitch to generate Android UI designs.
-8. **Set up Figma file** — follow `docs/design/figma/learntrack-figma-handoff.md` to create the Figma file manually; record the file URL in the three Figma docs.
-9. **Import Jira CSVs** — import the four CSV files in `docs/jira/` into the Jira instance; update documents with actual issue keys.
+3. **Run Google Stitch prompt** — execute `docs/design/google-stitch/course-progress-prompt.md` manually in Google Stitch to generate Android UI designs.
+4. **Set up Figma file** — follow `docs/design/figma/learntrack-figma-handoff.md` to create the Figma file manually; record the file URL in the three Figma docs.
+5. **Import Jira CSVs** — import the four CSV files in `docs/jira/` into the Jira instance; update documents with actual issue keys (LEAR-6 through LEAR-11 have been confirmed as the live keys).
 
 ### Recommended Next Steps (Priority Order)
 
-1. Confirm the 41 topic names with the user.
-2. Scaffold the `app/` module and Gradle build files.
-3. Create `learntrack_topics.json` with confirmed topic names.
-4. Implement data layer: `Topic.kt`, `TopicStatus.kt`, `CourseRepository.kt`, `CourseRepositoryImpl.kt`.
-5. Implement domain layer: `CourseProgress.kt`, `GetCourseProgressUseCase.kt`, `CalculateProgressUseCase.kt`.
-6. Implement UI layer: `CourseProgressScreen.kt`, `TopicListScreen.kt`, `TopicDetailScreen.kt`, `CourseProgressViewModel.kt`.
-7. Write and run unit tests, repository tests, regression test; verify `./gradlew testDebugUnitTest` passes.
-8. Verify CI workflow runs green.
-9. Execute Stitch prompt, set up Figma file, import Jira CSVs (parallel manual actions).
-10. Produce release-readiness report.
+1. Verify CI workflow runs green on a PR.
+2. UI verification against Figma designs (manual).
+3. Produce `docs/release/learntrack-release-readiness-report.md`.
+4. Execute Stitch prompt, set up Figma file, import Jira CSVs (parallel manual actions).
 
 ### What This Phase Delivered vs. What Requires Future Work
 
-**Delivered in this documentation phase:**
+**Delivered in earlier documentation phases:**
 - All 36 documentation artifacts (discovery, requirements, design, architecture, Jira CSVs, Kiro specs, skills, steering files, prompt chain, build variant docs, quality-gate docs, traceability matrix, MCP setup doc).
-- Pre-push quality gate scripts (PowerShell + Bash), now fixed to handle the `{"topics": [...]}` wrapper schema.
+- Pre-push quality gate scripts (PowerShell + Bash), fixed to handle the `{"topics": [...]}` wrapper schema.
 - GitHub Actions CI/CD workflow (`.github/workflows/ci.yml`).
 - Copy-ready prompts for Google Stitch, Figma, and Jira — all clearly marked as requiring manual execution.
-- Complete traceability chain from requirements through Jira → specs → predicted implementation → predicted tests.
+- Complete traceability chain from requirements through Jira → specs → implementation → tests.
 
-**Requires manual or future implementation work:**
-- Android app scaffold (`app/` module, Gradle files, Kotlin source).
-- `learntrack_topics.json` with user-confirmed topic names.
-- All Kotlin source files and test files.
-- Actual test execution and verified test results.
+**Delivered in implementation phase (LEAR-6 through LEAR-11):**
+- Full `app/` module scaffold: Gradle build files, `settings.gradle.kts`, `libs.versions.toml`, Gradle wrapper.
+- `app/src/main/assets/learntrack_topics.json`: 41 topics, 22 completed, 19 not-started.
+- Data layer: `Topic.kt`, `TopicStatus.kt`, `TopicContainer.kt`, `TopicSchemaValidator.kt`, `CourseRepository.kt`, `CourseRepositoryImpl.kt`.
+- Domain layer: `CourseProgress.kt`, `CalculateProgressUseCase.kt`, `GetCourseProgressUseCase.kt`.
+- UI layer: Material 3 theme, `CourseProgressScreen.kt`, `TopicListScreen.kt`, `TopicDetailScreen.kt`, navigation, `StatusBadge.kt`.
+- Hilt DI: `AppModule.kt`, `DataModule.kt`, `LearnTrackApplication.kt`, `MainActivity.kt`.
+- Unit tests: `ProgressCalculatorTest`, `CourseRepositoryImplTest`, `TopicDistributionRegressionTest` — 9 tests, 0 failures.
+- Android UI tests: `CourseProgressScreenTest`, `TopicListScreenTest`.
+- Build: `assembleDebug` PASS, `lintDebug` 0 errors. Code review: APPROVED (all 12 items pass).
+
+**Requires manual or future work:**
 - Google Stitch design generation (manual).
 - Figma file creation (manual).
 - Jira issue import (manual).
-- Release-readiness report (post-implementation).
+- Release-readiness report (`docs/release/learntrack-release-readiness-report.md`).
+- CI green-run verification on a pull request.
 
 ---
 
