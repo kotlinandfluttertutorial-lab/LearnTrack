@@ -149,54 +149,59 @@ Use Figma MCP when:
 - Checking design tokens, component variants, or spacing values
 - Confirming a composable matches the approved design before merging
 
-**Note:** Figma MCP availability has NOT been verified for this Kiro installation. The following are manual setup steps to use when the server is available.
+### Kiro-Native Figma MCP (Recommended — Used in LearnTrack)
 
-### Required Access
+Kiro has a built-in Figma integration that connects to `https://mcp.figma.com/mcp` automatically via OAuth. **No npm package or personal access token is required.**
 
-- Figma account with access to the LearnTrack design file
-- Figma Personal Access Token (read-only is sufficient for implementation)
-
-### Setup Steps
-
-1. Generate a Figma Personal Access Token at  
-   `https://www.figma.com/settings` → Personal access tokens
-
-2. Set the token as an environment variable:
-
-   **Windows (PowerShell):**
-   ```powershell
-   $env:FIGMA_API_TOKEN = "your-figma-token-here"
+To use it:
+1. Ensure you are signed in to Figma in your browser.
+2. In Kiro's MCP settings, add:
+   ```json
+   {
+     "mcpServers": {
+       "figma": {
+         "url": "https://mcp.figma.com/mcp",
+         "disabled": false
+       }
+     }
+   }
    ```
+3. Kiro will open an OAuth flow to authenticate with your Figma account.
+4. Verify access with `figma::whoami` — confirm seat is **Full** (not View-only). View-only seats cannot use MCP write tools.
 
-   **macOS/Linux (Bash):**
-   ```bash
-   export FIGMA_API_TOKEN="your-figma-token-here"
-   ```
+**LearnTrack Figma files (verified working):**
 
-3. Add the server entry to `.kiro/settings/mcp.json`:
+| File | Key | URL |
+|---|---|---|
+| LearnTrack — UI Designs | `5dEMGt9iynTXgVGqjxd9IM` | https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM |
+| LearnTrack — Design System | `AbG7UxbofJuAvBFCcZW0pv` | https://www.figma.com/design/AbG7UxbofJuAvBFCcZW0pv |
 
+**Key node IDs for `figma::get_design_context`:**
+
+| Node | ID | Contents |
+|---|---|---|
+| Stitch Import page | `3:4` | Full dark-mode dashboard design |
+| Course Progress (Dark Mode) frame | `4:3` | 390×1789dp — main design reference |
+| UI Screens page | `1:2` | All 5 screen sections |
+
+### Legacy npm-based Setup (Alternative — not used in LearnTrack)
+
+If Kiro's built-in Figma integration is unavailable:
+
+1. Generate a Figma Personal Access Token at `https://www.figma.com/settings` → Personal access tokens.
+2. Set as env var: `FIGMA_API_TOKEN`
+3. Add to `.kiro/settings/mcp.json`:
    ```json
    {
      "mcpServers": {
        "figma": {
          "command": "npx",
          "args": ["-y", "@figma/mcp-server"],
-         "env": {
-           "FIGMA_API_KEY": "${FIGMA_API_TOKEN}"
-         }
+         "env": { "FIGMA_API_KEY": "${FIGMA_API_TOKEN}" }
        }
      }
    }
    ```
-
-4. When using with a design file, provide the Figma file URL or file key to the agent.
-
-### Current State
-
-No Figma file has been created for LearnTrack yet. The design specifications are documented in:
-- `docs/design/figma/learntrack-figma-handoff.md`
-- `docs/design/figma/learntrack-design-system.md`
-- `docs/design/figma/learntrack-screen-inventory.md`
 
 When a Figma file is created, record its file key here.
 
