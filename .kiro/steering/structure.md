@@ -82,7 +82,7 @@ j:\Android\AndroidStudioProjects\Kiro\LearnTrack\
 
 ### Target State (after scaffold + implementation phases)
 
-The `app/` module and all Gradle files are added during implementation. The layout follows the standard Android single-module structure:
+> ✅ **Implementation complete as of October 29, 2026.** The layout below reflects the **actual implemented structure**, including packages added during implementation that were not in the original spec.
 
 ```
 ├── app/
@@ -96,10 +96,14 @@ The `app/` module and all Gradle files are added during implementation. The layo
 │   │   │   │   ├── data/
 │   │   │   │   │   ├── model/
 │   │   │   │   │   │   ├── Topic.kt
-│   │   │   │   │   │   └── TopicStatus.kt
-│   │   │   │   │   └── repository/
-│   │   │   │   │       ├── CourseRepository.kt
-│   │   │   │   │       └── CourseRepositoryImpl.kt
+│   │   │   │   │   │   ├── TopicStatus.kt
+│   │   │   │   │   │   └── TopicContainer.kt         ← JSON wrapper object
+│   │   │   │   │   ├── repository/
+│   │   │   │   │   │   ├── CourseRepository.kt
+│   │   │   │   │   │   └── CourseRepositoryImpl.kt
+│   │   │   │   │   └── validation/
+│   │   │   │   │       ├── TopicSchemaValidator.kt
+│   │   │   │   │       └── ValidationException.kt
 │   │   │   │   ├── domain/
 │   │   │   │   │   ├── model/
 │   │   │   │   │   │   └── CourseProgress.kt
@@ -111,16 +115,21 @@ The `app/` module and all Gradle files are added during implementation. The layo
 │   │   │   │   │   │   ├── CourseProgressScreen.kt
 │   │   │   │   │   │   ├── CourseProgressViewModel.kt
 │   │   │   │   │   │   └── CourseUiState.kt
-│   │   │   │   │   └── topics/
-│   │   │   │   │       ├── TopicListScreen.kt
-│   │   │   │   │       └── TopicDetailScreen.kt
-│   │   │   │   ├── di/
-│   │   │   │   │   ├── AppModule.kt
-│   │   │   │   │   └── DataModule.kt
-│   │   │   │   └── theme/
-│   │   │   │       ├── Color.kt
-│   │   │   │       ├── Theme.kt
-│   │   │   │       └── Type.kt
+│   │   │   │   │   ├── topics/
+│   │   │   │   │   │   ├── TopicListScreen.kt
+│   │   │   │   │   │   ├── TopicDetailScreen.kt
+│   │   │   │   │   │   └── StatusBadge.kt            ← shared status component
+│   │   │   │   │   └── theme/                        ← actual package: com.learntrack.ui.theme
+│   │   │   │   │       ├── Color.kt
+│   │   │   │   │       ├── Theme.kt
+│   │   │   │   │       ├── Type.kt
+│   │   │   │   │       └── Shape.kt
+│   │   │   │   ├── navigation/                       ← added during implementation
+│   │   │   │   │   ├── LearnTrackNavHost.kt
+│   │   │   │   │   └── Screen.kt
+│   │   │   │   └── di/
+│   │   │   │       ├── AppModule.kt
+│   │   │   │       └── DataModule.kt
 │   │   │   └── AndroidManifest.xml
 │   │   ├── test/java/com/learntrack/
 │   │   │   ├── domain/
@@ -136,6 +145,7 @@ The `app/` module and all Gradle files are added during implementation. The layo
 │   └── build.gradle.kts
 ├── build.gradle.kts
 ├── settings.gradle.kts
+├── gradle.properties
 ├── gradle/
 │   ├── libs.versions.toml
 │   └── wrapper/
@@ -179,14 +189,16 @@ Root package: `com.learntrack`
 
 | Sub-package | Contents |
 |---|---|
-| `com.learntrack.data.model` | Domain model data classes (`Topic`, `TopicStatus`) |
+| `com.learntrack.data.model` | `Topic`, `TopicStatus`, `TopicContainer` data classes |
 | `com.learntrack.data.repository` | Repository interface and implementation |
-| `com.learntrack.domain.model` | Domain-layer models (`CourseProgress`) |
-| `com.learntrack.domain.usecase` | Use case classes |
+| `com.learntrack.data.validation` | `TopicSchemaValidator`, `ValidationException` |
+| `com.learntrack.domain.model` | `CourseProgress` domain model |
+| `com.learntrack.domain.usecase` | `CalculateProgressUseCase`, `GetCourseProgressUseCase` |
 | `com.learntrack.ui.progress` | Dashboard screen, ViewModel, UiState |
-| `com.learntrack.ui.topics` | Topic list and detail screens |
-| `com.learntrack.di` | Hilt modules |
-| `com.learntrack.theme` | Material 3 theme, colors, typography |
+| `com.learntrack.ui.topics` | Topic list, detail screens, `StatusBadge` |
+| `com.learntrack.ui.theme` | Material 3 theme, colors, typography, shapes |
+| `com.learntrack.navigation` | `LearnTrackNavHost`, `Screen` route definitions |
+| `com.learntrack.di` | Hilt modules (`AppModule`, `DataModule`) |
 
 ---
 

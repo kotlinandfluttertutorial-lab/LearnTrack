@@ -42,6 +42,31 @@ Create a scope document before implementation.
 
 Document any additional scope discovered during repository analysis. Obtain approval before introducing significant new functionality.
 
+### 12a. Pre-Phase Access Verification (NEW — added after LearnTrack retrospective)
+
+Before starting the Figma phase, the Stitch phase, or the Jira phase, perform these checks:
+
+**Figma access:**
+1. Call `figma::whoami` to confirm the authenticated account and seat type.
+2. Confirm the seat is **Full** (not View-only). View-only seats cannot use MCP write tools.
+3. If no Figma file exists yet, call `figma::create_new_file` to create it — do not fabricate a file ID.
+4. Record the real file key in all Figma docs immediately.
+
+**Jira access:**
+1. Call `atlassian::getAccessibleAtlassianResources` to get the real `cloudId`.
+2. Search for the project (`project = <KEY> ORDER BY created`) to confirm the project key exists.
+3. Use the actual project key (e.g., `LEAR`) in all CSVs and issue creation — do not use placeholder keys like `LT-001` as if they were real Jira keys.
+4. Create issues via MCP when access is available. Clearly state "CSV only" when issues are not created live.
+
+**Google Stitch access:**
+1. Stitch does not have a verified MCP integration. Always treat Stitch as requiring manual execution.
+2. Write copy-ready prompts. Do not claim a Stitch project was run unless you have the project URL and export files on disk.
+
+**Topic names:**
+Before scaffolding the Android project, confirm the exact names for all topics with the user. Topic names are a **required blocker** for creating `learntrack_topics.json`. Document confirmed names in the scope doc and tasks spec before T-005 begins.
+
+---
+
 ### 13. Google Stitch — UI Generation
 
 Create Google Stitch prompts based on the verified LearnTrack requirements and existing application platform.
@@ -79,6 +104,15 @@ Do not fabricate lesson content or change the status rules to make a design look
 
 If Stitch access is unavailable, prepare the prompts for manual execution and document the handoff.
 
+**LearnTrack Stitch project:** ID `683813527608164394` — recorded in `docs/design/google-stitch/learntrack-stitch-master-prompt.md`. HTML code exports are present in `docs/design/google-stitch/exports/`. PNG image files require re-export from the live Stitch project (PNG fetch failed during automated export).
+- Course Dashboard (light + dark mode)
+- Progress Summary (separate from dashboard — this is often missed)
+- Topic List (light + dark mode)
+- Topic Detail (completed variant + not-started variant)
+- All edge states: loading skeleton, error, empty, invalid data
+
+**Lesson learned (LearnTrack):** Progress Summary was not exported as a separate screen — only embedded as part of the dark-mode dashboard scroll. Always require it as an independent export.
+
 ### 14. Figma — Design System and Handoff
 
 Use the approved Stitch concepts to prepare a Figma handoff.
@@ -112,6 +146,11 @@ If Figma MCP is unavailable, provide the exact Figma setup instructions and copy
 - UI components use a consistent design system.
 - The 53.7% progress state matches the authoritative course data.
 - The implementation does not introduce visual or behavioral regressions.
+- Dark mode variants exist for **all** primary screens — not only the dashboard.
+- The Figma Design System file is created as a **separate file** from the UI Designs file. Color tokens, typography, and component specs live there.
+- All Figma node IDs used in MCP calls are recorded in `learntrack-figma-handoff.md` so implementation agents can call `figma::get_design_context` without re-discovering them.
+
+**Lesson learned (LearnTrack):** Dark mode variants were only created for the dashboard. Require dark mode for all screens up front. Also, record all node IDs in the handoff doc immediately after MCP inspection — saves re-discovery time in the implementation phase.
 
 ### 15. Architecture and Data Design
 
@@ -167,6 +206,8 @@ Suggested stories and tasks:
 | LT-011 | Release-readiness verification |
 
 These are proposed identifiers, not existing Jira issue keys. Use actual Jira keys if issues already exist.
+
+**Important (lesson learned from LearnTrack):** Always call `atlassian::getAccessibleAtlassianResources` first to get the real `cloudId` and confirm the project key. Create issues via MCP when available — CSV-only is a fallback, not the default. The scaffold stories (T-001 Android project setup, T-002 navigation, T-003 Hilt) should have their own Jira stories, not just subtasks — they are significant enough to track independently.
 
 Create:
 
@@ -512,3 +553,27 @@ For external tools that require user access or manual action, prepare the handof
 Do not stop at documentation when the actual implementation can safely proceed. Do not modify unrelated features, overwrite existing user data, fabricate external resources, or deploy without authorization.
 
 The final report must summarize actual changes, verified results, missing integrations, outstanding approvals, and the remaining work required for release.
+
+---
+
+### 28. Lessons Learned — Append After Each Project (NEW)
+
+After completing a project with this prompt, append findings here so the next project benefits.
+
+**LearnTrack — October 2026:**
+
+1. **Figma MCP seat requirement:** MCP write tools require a Full seat. Always check `figma::whoami` seat field before the Figma phase. View-only accounts silently fail.
+
+2. **Topic names are a blocker:** The topic list for the JSON file was not confirmed before documentation. This created a dependency gap noted in the discovery report. Always get content confirmed before T-005.
+
+3. **Progress Summary needs its own Stitch export:** Stitch exported it only as part of the long dashboard scroll. Explicitly request it as a standalone screen.
+
+4. **Jira project key must be discovered first:** Using placeholder keys like `LT-001` in docs before knowing the real Jira project key (e.g., `LEAR`) creates confusion. Discover the key in the pre-phase check and use it everywhere from the start.
+
+5. **Android scaffold is a story, not just subtasks:** T-001 (Gradle scaffold), T-002 (theme/nav), T-003 (Hilt) are substantial enough for their own Jira stories. Subtasks alone make them invisible on the board.
+
+6. **JSON schema wrapper object:** The pre-push scripts initially assumed a flat JSON array. The actual schema `{"topics": [...]}` requires `.topics` access. Always specify the exact schema shape in the quality gate scripts and test them against a real file before committing.
+
+7. **Record Figma node IDs immediately:** After MCP inspection, record all node IDs (`page:section`, `frame`) in the handoff doc. Implementation agents need these to call `figma::get_design_context` without re-discovery.
+
+8. **Dark mode for all screens:** Only the dashboard got a dark variant in Figma. Require dark mode frames for all screens in the Stitch prompt and Figma handoff from the start.
