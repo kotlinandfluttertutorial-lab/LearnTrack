@@ -30,13 +30,19 @@
 
 ### Exported Screens
 
-| Screen | ID | PNG | HTML | Dimensions |
+**⚠️ PNG Export Status:** The `screen.png` files in each export subdirectory are **28-byte placeholder files** containing the text `<FIFE Image failed to fetch>` — they are NOT valid PNG images. The Stitch MCP image fetch failed during export. The `code.html` files (23–47 KB each) are real and contain valid HTML/CSS design output.
+
+To verify a valid PNG export: file size must be ≥ 67 bytes and the file must start with bytes `89 50 4E 47` (PNG magic number).
+
+| Screen | Export folder | PNG | HTML | Status |
 |---|---|---|---|---|
-| Course Progress (Dark Mode) | `7edc6f620fe74af1884bfdaac0a5fc8e` | `exports/course-progress-dark.png` (441 KB) | `exports/course-progress-dark.html` (28 KB) | 780×3504 px |
-| Course Progress (Light Mode) | `26c95a3db2084d9ba03b753ce32dba7c` | `exports/course-progress-light.png` (253 KB) | `exports/course-progress-light.html` (34 KB) | 780×1948 px |
-| Topic List | `39ace9b0bb7247c59fe1e1dc8dff6ed1` | `exports/topic-list.png` (426 KB) | `exports/topic-list.html` (47 KB) | 780×2840 px |
-| Topic Detail | `91c13ebb08224dbf88ccc9d36edc107f` | `exports/topic-detail.png` (755 KB) | `exports/topic-detail.html` (34 KB) | 780×2834 px |
-| Reviewer | _(to be filled)_ |
+| Course Progress (Dark Mode) | `exports/course_progress_dark_mode/` | `screen.png` ⚠️ placeholder | `code.html` ✅ 23+ KB | HTML only |
+| Course Progress (Light Mode) | `exports/course_progress_light_mode/` | `screen.png` ⚠️ placeholder | `code.html` ✅ real | HTML only |
+| Topic List | `exports/topic_list/` | `screen.png` ⚠️ placeholder | `code.html` ✅ real | HTML only |
+| Topic Detail | `exports/topic_detail/` | `screen.png` ⚠️ placeholder | `code.html` ✅ real | HTML only |
+| Design System | `exports/learntrack_mobile_design_system/` | N/A | `DESIGN.md` ✅ full YAML | Complete |
+
+**Action required:** Open [stitch.withgoogle.com/project/683813527608164394](https://stitch.withgoogle.com/project/683813527608164394) and manually download the screen PNGs for each screen. Replace the placeholder files in the export folders above.
 
 ---
 
