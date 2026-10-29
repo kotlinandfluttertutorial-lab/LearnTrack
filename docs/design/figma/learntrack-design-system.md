@@ -1,8 +1,8 @@
 # LearnTrack — Design System
 
 **Platform:** Android (Jetpack Compose, Material 3)
-**Color palette status:** Proposed — derived from a deep-blue education/technology seed color (#1565C0). Override these values after design review if a brand palette is provided.
-**Figma file:** LearnTrack — Design System _(URL to be filled after manual Figma setup)_
+**Color palette status:** ✅ Verified — extracted from Figma node `4:3` (Course Progress Dark Mode) via MCP on October 28, 2026. Values below supersede the original proposed palette.
+**Figma file:** [LearnTrack — UI Designs](https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM/LearnTrack-%E2%80%94-UI-Designs) — file key `5dEMGt9iynTXgVGqjxd9IM`, MCP-accessible
 
 ---
 
@@ -73,52 +73,48 @@
 
 ```kotlin
 // app/src/main/java/com/learntrack/ui/theme/Color.kt
+// Values extracted from Figma file 5dEMGt9iynTXgVGqjxd9IM, node 4:3 — October 28, 2026
 package com.learntrack.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Primary
+// Primary (deep blue — progress ring fill, buttons, active states)
 val Blue700 = Color(0xFF1565C0)
-val Blue900 = Color(0xFF003258)
-val Blue100 = Color(0xFFD0E4FF)
-val Blue050 = Color(0xFF001D36)
+val Blue900 = Color(0xFF004D99)      // progress ring dark, header accent
+val Blue100 = Color(0xFFD6E3FF)      // chip active bg, tonal containers
 
-// Secondary (Teal/Completed)
-val Teal700 = Color(0xFF00695C)
-val Teal050 = Color(0xFF003730)
-val Teal100 = Color(0xFFB2DFDB)
+// Surfaces (light mode — verified from file)
+val SurfaceLight     = Color(0xFFFBF9F9)   // card backgrounds
+val SurfaceVariant   = Color(0xFFF5F3F3)   // secondary card bg
+val SurfaceTint      = Color(0xFFEFEDED)   // dividers, inactive rows
+val SurfaceDim       = Color(0xFFE9E8E7)   // skeleton/loading placeholder
+val SurfaceNeutral   = Color(0xFFE3E2E2)   // borders, outlines
 
-// Tertiary (Amber/Not Started)
-val Amber700 = Color(0xFFF57F17)
-val Amber050 = Color(0xFF3E2000)
-val Amber100 = Color(0xFFFFF3E0)
+// On-surface text (verified from file)
+val OnSurface        = Color(0xFF1B1C1C)   // primary text
+val OnSurfaceVariant = Color(0xFF424752)   // secondary text, labels
+val OnSurfaceMuted   = Color(0xFF727783)   // captions, disabled
 
-// Status
-val StatusCompleted = Color(0xFF2E7D32)
-val StatusCompletedDark = Color(0xFF81C784)
-val StatusCompletedContainer = Color(0xFFE8F5E9)
-val StatusNotStarted = Color(0xFF757575)
-val StatusNotStartedDark = Color(0xFFBDBDBD)
-val StatusNotStartedContainer = Color(0xFFF5F5F5)
+// Primary text / links
+val PrimaryText      = Color(0xFF004D99)   // links, primary-colored text
 
-// Surfaces (Light)
-val SurfaceLight = Color(0xFFFFFFFF)
-val SurfaceVariantLight = Color(0xFFE3E8F0)
-val BackgroundLight = Color(0xFFFAFAFA)
+// Status — Completed (green)
+val StatusCompleted           = Color(0xFF217128)   // completed icon
+val StatusCompletedText       = Color(0xFF1B6D24)   // completed text on badge
+val StatusCompletedContainer  = Color(0xFFA0F399)   // completed badge background
 
-// Surfaces (Dark)
-val SurfaceDark = Color(0xFF1E1E1E)
-val SurfaceVariantDark = Color(0xFF2D3748)
-val BackgroundDark = Color(0xFF121212)
+// Status — Not Started (grey — uses OnSurfaceMuted)
+val StatusNotStarted          = Color(0xFF727783)
+val StatusNotStartedContainer = Color(0xFFE9E8E7)
 
 // Error
-val ErrorRed = Color(0xFFB00020)
-val ErrorRedDark = Color(0xFFCF6679)
-val ErrorContainer = Color(0xFFFDECEA)
+val ErrorContainer   = Color(0xFFFFDAD6)   // error state background
 
-// Warning
-val WarningAmber = Color(0xFFF57F17)
-val WarningContainer = Color(0xFFFFF8E1)
+// Warning / Invalid data (amber)
+val WarningText      = Color(0xFFA24F00)   // warning banner text
+val WarningIcon      = Color(0xFF723600)   // warning icon
+val WarningContainer = Color(0xFFFFDCC7)   // warning banner background
+val WarningDark      = Color(0xFF311300)   // error/warning dark text
 ```
 
 ---

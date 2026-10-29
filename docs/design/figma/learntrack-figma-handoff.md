@@ -1,26 +1,59 @@
 # LearnTrack — Figma Design Handoff
 
-**Tool:** Figma (manual setup required)
-**MCP status:** Figma MCP was not verified as available during this phase. No Figma file IDs, project links, or export URLs have been generated. All setup and file creation must be performed manually following the instructions in this document.
+**Tool:** Figma
+**MCP status:** ✅ Connected — authenticated as Firoj (firoj.md2002@gmail.com), Full seat, editor access confirmed
+**File status:** ✅ File created and inspected via MCP
+**File key:** `5dEMGt9iynTXgVGqjxd9IM`
 **Platform:** Android mobile (Jetpack Compose, Material 3)
 **Source designs:** Google Stitch — see `docs/design/google-stitch/learntrack-stitch-master-prompt.md`
+**Last updated:** October 28, 2026
 
 ---
 
 ## 1. Figma Setup Instructions
 
-### 1.1 Create the Figma Project (Manual Steps)
+### 1.1 Figma Files
+
+| File | URL | Status |
+|---|---|---|
+| LearnTrack — UI Designs | https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM/LearnTrack-%E2%80%94-UI-Designs | ✅ Created & MCP-accessible |
+| LearnTrack — Design System | _(create separately — see Section 1.1a)_ | 🔲 Pending |
+
+**File key (for MCP tools):** `5dEMGt9iynTXgVGqjxd9IM`
+
+### Actual Page Structure (verified via MCP — October 28, 2026)
+
+| Page ID | Page Name | Status |
+|---|---|---|
+| `0:1` | Cover | ✅ Exists (empty) |
+| `3:4` | Stitch Import | ✅ Exists — contains live design content |
+| `1:2` | UI Screens | ✅ Exists — sections created |
+
+### Actual Sections on "UI Screens" Page (node `1:2`)
+
+| Section ID | Section Name | Position |
+|---|---|---|
+| `3:5` | Course Dashboard | x=0, y=0 |
+| `3:6` | Topic List | x=1200, y=0 |
+| `3:7` | Topic Detail | x=2400, y=0 |
+| `3:8` | Progress Summary | x=0, y=1100 |
+| `3:9` | States | x=1200, y=1100 |
+
+### Actual Frames on "Stitch Import" Page (node `3:4`)
+
+The Stitch Import page (Section `4:1011` — "Section 1") contains a fully designed **dark mode** screen:
+
+| Frame ID | Frame Name | Dimensions |
+|---|---|---|
+| `4:3` | Course Progress (Dark Mode) | 390 × 1789.5 dp |
+
+This is the **authoritative reference design** — inspected via MCP and confirmed against screenshot review.
+
+### 1.1a Create the Design System File (Pending)
 
 1. Sign in to [figma.com](https://figma.com).
-2. In your workspace, create a new **Project** named **LearnTrack**.
-3. Inside the project, create a new **Design File** named **LearnTrack — UI Designs**.
-4. Create a second **Design File** named **LearnTrack — Design System**.
-5. Record both file URLs here after creation (do not leave placeholder text in committed documentation):
-
-| File | URL |
-|---|---|
-| LearnTrack — UI Designs | _(paste URL after creation)_ |
-| LearnTrack — Design System | _(paste URL after creation)_ |
+2. In the same **LearnTrack** project, create a new **Design File** named **LearnTrack — Design System**.
+3. Record the URL here once created.
 
 ### 1.2 Import Stitch Designs
 
@@ -348,19 +381,151 @@ The following criteria must be met before the Figma design is approved for imple
 
 ---
 
-## 6. Notes on Figma MCP
+## 6. Actual Design Tokens Extracted from Figma (MCP-verified)
 
-The Figma MCP server was not verified as available for this workflow step. As a result:
+The following values were extracted directly from the Figma file via `figma::get_design_context` on node `4:3` (Course Progress — Dark Mode frame, Stitch Import page). These are the **authoritative values** to use in implementation.
 
-- No Figma file IDs have been generated or recorded.
-- No design exports have been created.
-- No component code has been auto-generated from Figma.
+### 6.1 Colors — Extracted from File
 
-When Figma MCP is available and configured:
-1. Run `figma::create_new_file` to create the design files.
-2. Run `figma::create_session` with the returned file key.
-3. Use `figma::use_figma` or `figma::generate_figma_design` to push the design specifications.
-4. Use `figma::get_code_connect_map` to verify Code Connect mappings.
-5. Update this document with real file IDs and URLs — never fabricate them.
+#### Background Colors
+| Token | Hex | Usage in design |
+|---|---|---|
+| Primary | `#1565C0` | Progress ring fill, primary button, active states |
+| Primary Dark | `#004D99` | Progress ring track fill (dark), header accent |
+| Primary Container | `#D6E3FF` | Chip active background, tonal containers |
+| Surface | `#FBF9F9` | Card backgrounds (light) |
+| Surface Variant | `#F5F3F3` | Secondary card backgrounds |
+| Surface Tint | `#EFEDED` | Dividers, inactive rows |
+| Surface Dim | `#E9E8E7` | Skeleton/loading placeholder |
+| Surface Neutral | `#E3E2E2` | Border, outline |
+| Completed Green | `#A0F399` | Completed status badge background |
+| Error Container | `#FFDAD6` | Error state background |
+| Warning Container | `#FFDCC7` | Warning/amber banner background |
 
-The implementation team can proceed with this handoff document as the authoritative specification. The Figma file, when created, must match these specifications exactly. Any deviation from the specs in this document requires a documented design change request.
+#### Text Colors
+| Token | Hex | Usage in design |
+|---|---|---|
+| On Surface | `#1B1C1C` | Primary text |
+| On Surface Variant | `#424752` | Secondary text, labels |
+| Muted | `#727783` | Caption text, disabled states |
+| Primary Text | `#004D99` | Links, primary-colored text |
+| Completed Text | `#1B6D24` | Completed status text (dark on green) |
+| Completed Alt | `#217128` | Completed icon color |
+| Warning Text | `#A24F00` | Warning banner text |
+| Warning Dark | `#723600` | Warning icon color |
+| Error Dark | `#311300` | Error text |
+
+### 6.2 Typography — Extracted from File
+
+| Size | Line height | Usage |
+|---|---|---|
+| 32px | 40px | `53.7%` progress percentage — Headline Large |
+| 24px | 30px | Stats numbers (22, 41, 19) — Headline Small |
+| 22px | 28px | Course title, screen titles — Title Large |
+| 20px | 28px | Section headings — Title Medium large |
+| 16px | 24px | Body text, topic names — Body Large / Title Medium |
+| 14px | 20px | Secondary text, bar labels — Body Medium |
+| 12px | 16px | Captions, badge labels — Label Medium |
+| 11px | 16px | Stats category labels ("Completed", "Total") — Label Small |
+
+### 6.3 Shape / Border Radius — Extracted from File
+
+| Value | Usage |
+|---|---|
+| `9999px` (pill) | Buttons, progress bar ends, status badges, circular elements |
+| `12px` | Cards, bottom sheet, hero sections |
+| `8px` | Chips, filter chips, inline cards |
+
+### 6.4 Actual Components Found in File
+
+These component names match exactly what was found in the Figma node tree:
+
+| Figma component name | Maps to Composable |
+|---|---|
+| `Section - COMPONENT 1: Progress Hero Card (Default State)` | `ProgressHeroCard` |
+| `Section - COMPONENT 2: In-Page Expandable Summary Sheet (Native Drawer Pattern)` | `ProgressSummaryBottomSheet` |
+| `Circular Progress Indicator & Metric Highlight` | `CircularProgressRing` |
+| `Full Linear Progress Bar with exact label` | `LinearProgressBar` |
+| `3-Column Stats Row` | `StatsRow` |
+| `2x2 Grid of Progress Metrics` | `StatsGrid` |
+| `Top Motivation & Glance Strip` | `ContinueLearningCard` |
+| `Learning Momentum Visual Banner` | `DailyGoalBanner` |
+| `SYSTEM EDGE STATES DEMONSTRATION` | Error / Warning state components |
+| `hero-progress-ring` | `CircularProgressRing` SVG gauge |
+| `SVG Gauge: 120dp viewport with 12dp stroke` | Custom `Canvas`-drawn ring, 120dp × 12dp stroke |
+| `Full-Width Pill Action Button` | `FilledButton` (pill shape) |
+| `Motivational Callout` | Inline `Text` composable |
+| `Nav` | `NavigationBar` (Dashboard, Topics, Profile tabs) |
+
+### 6.5 Actual UI Text Labels Found in File
+
+These are the exact text strings present in the design — use them verbatim in implementation:
+
+| UI string | Where used |
+|---|---|
+| `"IN PROGRESS TRACK"` | Dashboard hero chip label |
+| `"AI & Python Technology Course"` | Course name |
+| `"53.7%"` | Circular ring center label |
+| `"COMPLETE"` | Below ring center |
+| `"22 of 41 Topics"` | Progress sub-label |
+| `"22"` / `"41"` / `"19"` | Stats row values |
+| `"Completed"` / `"Total"` / `"Not Started"` | Stats row labels |
+| `"Syllabus Depth"` | Progress bar label |
+| `"View All Topics →"` | CTA button |
+| `"DAILY GOAL UNLOCKED"` | Learning momentum banner chip |
+| `"Your Progress"` | Bottom sheet title |
+| `"53.7% complete"` | Linear progress bar label |
+| `"Target: 100% by Nov 30"` | Progress target label |
+| `"You're more than halfway there! Keep going."` | Motivational callout |
+| `"Dashboard"` / `"Topics"` / `"Profile"` | Bottom nav labels |
+| `"Unable to sync module records"` | Error state headline |
+| `"Retry Sync"` | Error state action button |
+| `"Discrepancy Detected in Progress Log"` | Warning state headline |
+| `"Reconcile Ledger"` | Warning state action button |
+
+### 6.6 Edge States Found in File
+
+The design includes a **SYSTEM EDGE STATES DEMONSTRATION** section with:
+
+| State | Headline | Action |
+|---|---|---|
+| Loading skeleton | _(shimmer, no text)_ | — |
+| Error | "Unable to sync module records" | "Retry Sync" button |
+| Warning / Invalid data | "Discrepancy Detected in Progress Log" | "Reconcile Ledger" button |
+
+> Note: "Reconcile Ledger" and "Retry Sync" are the design's action labels. The implementation equivalent is `onRetry: () -> Unit` callback on the error/warning state composables.
+
+---
+
+## 7. Notes on Figma MCP
+
+The Figma MCP is **fully operational** for this file as of October 28, 2026.
+
+**Authenticated account:** Firoj (firoj.md2002@gmail.com) — Full seat
+**File:** https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM/LearnTrack-%E2%80%94-UI-Designs
+**File key:** `5dEMGt9iynTXgVGqjxd9IM`
+
+**Available MCP operations (confirmed working):**
+```
+figma::create_session  fileKey: "5dEMGt9iynTXgVGqjxd9IM"
+figma::get_metadata    nodeId: "3:4"   — Stitch Import page (has full design)
+figma::get_metadata    nodeId: "1:2"   — UI Screens page (sections created)
+figma::get_metadata    nodeId: "4:3"   — Course Progress Dark Mode frame
+figma::get_design_context  nodeId: "4:3"  — Full component tree + code
+```
+
+**Key node IDs for implementation:**
+
+| Node | ID | Contents |
+|---|---|---|
+| Stitch Import page | `3:4` | Full dark-mode dashboard design |
+| Section 1 (Stitch) | `4:1011` | Outer section wrapper |
+| Course Progress (Dark Mode) | `4:3` | Main 390×1789dp frame |
+| UI Screens page | `1:2` | Section placeholders for all 4 screens |
+| Course Dashboard section | `3:5` | To be populated |
+| Topic List section | `3:6` | To be populated |
+| Topic Detail section | `3:7` | To be populated |
+| Progress Summary section | `3:8` | To be populated |
+| States section | `3:9` | To be populated |
+
+The implementation team can use `figma::get_design_context` on any node ID above to extract Jetpack Compose-ready component code. The dark-mode frame (`4:3`) is the most complete reference available.

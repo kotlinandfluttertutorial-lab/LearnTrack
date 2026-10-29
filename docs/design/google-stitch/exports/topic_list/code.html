@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-tertiary": "#ffffff",
+        "on-secondary-fixed": "#002204",
+        "on-primary-container": "#dae5ff",
+        "secondary": "#1b6d24",
+        "error-container": "#ffdad6",
+        "on-secondary-fixed-variant": "#005312",
+        "on-background": "#1b1c1c",
+        "surface-container-lowest": "#ffffff",
+        "secondary-container": "#a0f399",
+        "surface-container": "#efeded",
+        "on-primary-fixed-variant": "#00468c",
+        "tertiary-fixed": "#ffdcc7",
+        "surface-bright": "#fbf9f9",
+        "inverse-surface": "#303031",
+        "surface-container-highest": "#e3e2e2",
+        "error": "#ba1a1a",
+        "surface": "#fbf9f9",
+        "tertiary": "#7d3c00",
+        "inverse-primary": "#a9c7ff",
+        "secondary-fixed": "#a3f69c",
+        "on-secondary": "#ffffff",
+        "surface-container-low": "#f5f3f3",
+        "on-tertiary-fixed-variant": "#723600",
+        "surface-container-high": "#e9e8e7",
+        "tertiary-container": "#a24f00",
+        "inverse-on-surface": "#f2f0f0",
+        "on-surface": "#1b1c1c",
+        "primary-fixed": "#d6e3ff",
+        "on-secondary-container": "#217128",
+        "on-tertiary-fixed": "#311300",
+        "surface-variant": "#e3e2e2",
+        "surface-tint": "#005db7",
+        "primary-container": "#1565c0",
+        "primary-fixed-dim": "#a9c7ff",
+        "on-primary": "#ffffff",
+        "tertiary-fixed-dim": "#ffb787",
+        "outline-variant": "#c2c6d4",
+        "background": "#fbf9f9",
+        "on-primary-fixed": "#001b3d",
+        "on-tertiary-container": "#ffdecc",
+        "on-surface-variant": "#424752",
+        "primary": "#004d99",
+        "secondary-fixed-dim": "#88d982",
+        "outline": "#727783",
+        "on-error-container": "#93000a",
+        "surface-dim": "#dbdad9",
+        "on-error": "#ffffff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-lg": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "gutter": "1rem",
+        "margin": "1rem",
+        "space-md": "1rem",
+        "space-xl": "2rem"
+      },
+      "fontFamily": {
+        "body-md": ["Inter"],
+        "body-lg": ["Inter"],
+        "title-md": ["Inter"],
+        "headline-sm": ["Inter"],
+        "title-lg": ["Inter"],
+        "label-sm": ["Inter"],
+        "label-lg": ["Inter"],
+        "body-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "title-sm": ["Inter"],
+        "label-md": ["Inter"]
+      },
+      "fontSize": {
+        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+        "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+        "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "0px", "fontWeight": "600"}],
+        "title-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "0px", "fontWeight": "600"}],
+        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+        "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.4px", "fontWeight": "400"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "0px", "fontWeight": "700"}],
+        "title-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+      }
+    }
+  }
+}</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-6 px-margin flex items-center justify-between text-on-surface select-none"><span class="font-label-sm text-label-sm font-semibold tracking-tight">9:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[16px]">battery_full</span></div></div><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><h1 class="font-title-lg text-title-lg text-on-surface truncate">Dashboard</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[24px]">search</span></button><button aria-label="More options" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-22 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-6 gap-y-4">
+<!-- Dynamic Sub-Header / Course Context Bar -->
+<section class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-sm gap-y-3">
+<div class="flex items-center justify-between">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-title-sm text-title-sm text-primary font-semibold tracking-wide flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">school</span>
+          AI &amp; Python Technology Course
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">
+          22 of 41 Milestones Completed
+        </span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Search topics" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:bg-surface-container-high transition-colors" id="search-btn">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+<button aria-label="Sort &amp; filter" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:bg-surface-container-high transition-colors" id="filter-btn">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Live Search Simulation Field (Expandable) -->
+<div class="hidden transition-all duration-200" id="search-box">
+<div class="flex items-center bg-surface-container-highest rounded-full px-space-md py-1.5 shadow-inner">
+<span class="material-symbols-outlined text-outline text-[20px] mr-2">search</span>
+<input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface w-full placeholder:text-outline" id="search-input" placeholder="Filter by keyword (e.g. Pandas, Neural)..." type="text"/>
+<button class="w-7 h-7 flex items-center justify-center rounded-full text-outline hover:text-on-surface" id="search-clear">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Progress Metric Summary Banner -->
+<div class="bg-surface-container-lowest rounded-lg p-3 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Course Progress</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold tracking-tight">53.7%</span>
+</div>
+<!-- Linear Progress Bar -->
+<div class="w-full h-2 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full bg-primary-container rounded-full transition-all duration-500" style="width: 53.7%;"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm pt-0.5">
+<span>22 Completed</span>
+<span>19 Not Started</span>
+</div>
+</div>
+</section>
+<!-- Filter Chips Horizontal Row -->
+<section aria-label="Topic status filter" class="w-full overflow-x-auto no-scrollbar -mx-margin px-margin py-0.5">
+<div class="flex items-center gap-2 min-w-max">
+<!-- All (41) - Active -->
+<button aria-pressed="true" class="chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-sm" id="chip-all" onclick="filterTopics('all')">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>All (41)</span>
+</button>
+<!-- Completed (22) -->
+<button aria-pressed="false" class="chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-surface-container text-on-surface hover:bg-surface-container-high" id="chip-completed" onclick="filterTopics('completed')">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Completed (22)</span>
+</button>
+<!-- Not Started (19) -->
+<button aria-pressed="false" class="chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-surface-container text-on-surface hover:bg-surface-container-high" id="chip-pending" onclick="filterTopics('pending')">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Not Started (19)</span>
+</button>
+</div>
+</section>
+<!-- Interactive States Switcher Bar (Material 3 Toggle Preview) -->
+<section class="bg-surface-container rounded-xl p-1.5 flex items-center justify-between text-center overflow-x-auto no-scrollbar">
+<button class="view-tab flex-1 py-1.5 px-2 rounded-lg font-label-sm text-label-sm font-semibold transition-all bg-surface-container-lowest text-primary shadow-xs" id="tab-default" onclick="switchViewMode('default')">
+      Default
+    </button>
+<button class="view-tab flex-1 py-1.5 px-2 rounded-lg font-label-sm text-label-sm transition-all text-on-surface-variant hover:text-on-surface" id="tab-loading" onclick="switchViewMode('loading')">
+      Loading
+    </button>
+<button class="view-tab flex-1 py-1.5 px-2 rounded-lg font-label-sm text-label-sm transition-all text-on-surface-variant hover:text-on-surface" id="tab-error" onclick="switchViewMode('error')">
+      Error
+    </button>
+<button class="view-tab flex-1 py-1.5 px-2 rounded-lg font-label-sm text-label-sm transition-all text-on-surface-variant hover:text-on-surface" id="tab-empty" onclick="switchViewMode('empty')">
+      Empty
+    </button>
+</section>
+<!-- MAIN LIST CONTAINER -->
+<div class="flex flex-col gap-y-2" id="topics-list-container">
+<!-- COMPLETED TOPICS SECTION -->
+<div class="flex flex-col gap-y-2" id="completed-section">
+<div class="flex items-center justify-between px-1 pt-1">
+<span class="font-label-md text-label-md text-secondary font-bold tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+          COMPLETED (22 TOPICS)
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">100% Verified</span>
+</div>
+<!-- Topic 01 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Introduction to Python &amp; AI Ecosystem">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 01</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Introduction to Python &amp; AI Ecosystem</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 02 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Python Data Structures &amp; Algorithmic Foundations">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 02</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Python Data Structures &amp; Algorithmic Foundations</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 03 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="NumPy Matrix Computing &amp; Vectorization">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 03</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">NumPy Matrix Computing &amp; Vectorization</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 04 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Data Wrangling with Pandas &amp; DataFrames">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 04</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Data Wrangling with Pandas &amp; DataFrames</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 05 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Data Visualization &amp; Exploratory Analysis">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 05</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Data Visualization &amp; Exploratory Analysis</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 06 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Probability &amp; Linear Algebra for Machine Learning">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 06</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Probability &amp; Linear Algebra for Machine Learning</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 21 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Deep Learning Foundations &amp; Backpropagation">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 21</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Deep Learning Foundations &amp; Backpropagation</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 22 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="completed" data-title="Asynchronous Python &amp; Concurrency in PyTorch">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 22</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] font-semibold">Done</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Asynchronous Python &amp; Concurrency in PyTorch</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- NOT STARTED SECTION DIVIDER -->
+<div class="flex flex-col gap-y-2 pt-2" id="pending-section">
+<div class="flex items-center justify-between px-1 pt-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-bold tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+          NOT STARTED (19 TOPICS REMAINING)
+        </span>
+<span class="font-label-sm text-label-sm text-outline">Up Next</span>
+</div>
+<!-- Topic 23 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="pending" data-title="Neural Network Architectures &amp; Optimization">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 23</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Not Started</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Neural Network Architectures &amp; Optimization</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 24 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="pending" data-title="Convolutional Neural Networks for Vision">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 24</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Not Started</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Convolutional Neural Networks for Vision</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 25 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="pending" data-title="Sequence Models &amp; Recurrent Networks">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 25</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Not Started</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Sequence Models &amp; Recurrent Networks</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 26 Card -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="pending" data-title="Attention Mechanisms &amp; Transformer Fundamentals">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 26</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Not Started</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Attention Mechanisms &amp; Transformer Fundamentals</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Topic 41 Card (Capstone) -->
+<div class="topic-item group flex items-center justify-between min-h-[64px] p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors" data-status="pending" data-title="End-to-End LLM Deployment &amp; MLOps Pipeline">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Topic 41 • Capstone</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[10px]">Not Started</span>
+</div>
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">End-to-End LLM Deployment &amp; MLOps Pipeline</h2>
+</div>
+</div>
+<button aria-label="Topic details" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SKELETON / LOADING STATE (Hidden by default) -->
+<div class="hidden flex-col gap-y-2 animate-pulse" id="loading-state-view">
+<div class="h-4 w-32 bg-surface-container-high rounded-full mb-1"></div>
+<div class="h-16 w-full bg-surface-container-low rounded-xl"></div>
+<div class="h-16 w-full bg-surface-container-low rounded-xl"></div>
+<div class="h-16 w-full bg-surface-container-low rounded-xl"></div>
+<div class="h-4 w-44 bg-surface-container-high rounded-full my-1"></div>
+<div class="h-16 w-full bg-surface-container-low rounded-xl"></div>
+<div class="h-16 w-full bg-surface-container-low rounded-xl"></div>
+</div>
+<!-- ERROR RETRY STATE (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center p-6 bg-surface-container-low rounded-xl text-center gap-y-3" id="error-state-view">
+<div class="w-14 h-14 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">cloud_off</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface">Could not load topics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Check your network connection and try again.</p>
+</div>
+<button class="h-11 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 active:scale-95 transition-all flex items-center gap-2" onclick="switchViewMode('default')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+      Retry
+    </button>
+</div>
+<!-- EMPTY FILTER / SEARCH STATE (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center p-6 bg-surface-container-lowest rounded-xl text-center gap-y-3 shadow-sm" id="empty-state-view">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[32px]">filter_list_off</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface">No matching topics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">No items correspond to your current keyword or filter criteria.</p>
+</div>
+<button class="h-11 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 active:scale-95 transition-all" onclick="clearFilter()">
+      Clear filter
+    </button>
+</div>
+</div>
+<script>
+  // Search toggle micro-interaction
+  const searchBtn = document.getElementById('search-btn');
+  const searchBox = document.getElementById('search-box');
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+
+  if (searchBtn && searchBox) {
+    searchBtn.addEventListener('click', () => {
+      searchBox.classList.toggle('hidden');
+      if (!searchBox.classList.contains('hidden')) {
+        searchInput.focus();
+      }
+    });
+  }
+
+  if (searchClear && searchInput) {
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      filterBySearch('');
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      filterBySearch(e.target.value.toLowerCase());
+    });
+  }
+
+  function filterBySearch(query) {
+    const items = document.querySelectorAll('.topic-item');
+    let visibleCount = 0;
+
+    items.forEach(item => {
+      const title = (item.getAttribute('data-title') || '').toLowerCase();
+      if (title.includes(query)) {
+        item.style.display = 'flex';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    const emptyView = document.getElementById('empty-state-view');
+    const mainList = document.getElementById('topics-list-container');
+    if (visibleCount === 0 && query.trim() !== '') {
+      mainList.classList.add('hidden');
+      emptyView.classList.remove('hidden');
+      emptyView.classList.add('flex');
+    } else {
+      mainList.classList.remove('hidden');
+      emptyView.classList.add('hidden');
+      emptyView.classList.remove('flex');
+    }
+  }
+
+  // Filter Chips Logic
+  window.filterTopics = function(status) {
+    const allChip = document.getElementById('chip-all');
+    const completedChip = document.getElementById('chip-completed');
+    const pendingChip = document.getElementById('chip-pending');
+    const completedSection = document.getElementById('completed-section');
+    const pendingSection = document.getElementById('pending-section');
+
+    // Reset styles
+    [allChip, completedChip, pendingChip].forEach(chip => {
+      chip.className = "chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-surface-container text-on-surface hover:bg-surface-container-high";
+      chip.setAttribute('aria-pressed', 'false');
+    });
+
+    if (status === 'all') {
+      allChip.className = "chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-sm";
+      allChip.setAttribute('aria-pressed', 'true');
+      completedSection.style.display = 'flex';
+      pendingSection.style.display = 'flex';
+    } else if (status === 'completed') {
+      completedChip.className = "chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-sm";
+      completedChip.setAttribute('aria-pressed', 'true');
+      completedSection.style.display = 'flex';
+      pendingSection.style.display = 'none';
+    } else if (status === 'pending') {
+      pendingChip.className = "chip-item h-8 px-3 rounded-full flex items-center gap-1.5 font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-sm";
+      pendingChip.setAttribute('aria-pressed', 'true');
+      completedSection.style.display = 'none';
+      pendingSection.style.display = 'flex';
+    }
+  };
+
+  // State Preview Switcher (Default, Loading, Error, Empty)
+  window.switchViewMode = function(mode) {
+    const mainList = document.getElementById('topics-list-container');
+    const loadingView = document.getElementById('loading-state-view');
+    const errorView = document.getElementById('error-state-view');
+    const emptyView = document.getElementById('empty-state-view');
+
+    // Reset tabs
+    document.querySelectorAll('.view-tab').forEach(tab => {
+      tab.className = "view-tab flex-1 py-1.5 px-2 rounded-lg font-label-sm text-label-sm transition-all text-on-surface-variant hover:text-on-surface";
+    });
+
+    const activeTab = document.getElementById('tab-' + mode);
+    if (activeTab) {
+      activeTab.className = "view-tab flex-1 py-1.5 px-2 rounded-lg font-label-sm text-label-sm font-semibold transition-all bg-surface-container-lowest text-primary shadow-xs";
+    }
+
+    mainList.classList.add('hidden');
+    loadingView.classList.add('hidden');
+    loadingView.classList.remove('flex');
+    errorView.classList.add('hidden');
+    errorView.classList.remove('flex');
+    emptyView.classList.add('hidden');
+    emptyView.classList.remove('flex');
+
+    if (mode === 'default') {
+      mainList.classList.remove('hidden');
+    } else if (mode === 'loading') {
+      loadingView.classList.remove('hidden');
+      loadingView.classList.add('flex');
+    } else if (mode === 'error') {
+      errorView.classList.remove('hidden');
+      errorView.classList.add('flex');
+    } else if (mode === 'empty') {
+      emptyView.classList.remove('hidden');
+      emptyView.classList.add('flex');
+    }
+  };
+
+  window.clearFilter = function() {
+    if (searchInput) searchInput.value = '';
+    filterTopics('all');
+    filterBySearch('');
+    switchViewMode('default');
+  };
+
+  // Highlighting active Topics tab in shell bottom navigation
+  document.addEventListener('DOMContentLoaded', () => {
+    const navTopics = document.querySelector('nav a[data-path="topics"]');
+    const navDashboard = document.querySelector('nav a[data-path="dashboard"]');
+    if (navTopics && navDashboard) {
+      // Set Topics active pill
+      const pillTopics = navTopics.querySelector('div');
+      if (pillTopics) {
+        pillTopics.classList.add('bg-secondary-container', 'text-on-secondary-container');
+      }
+      navTopics.classList.add('text-on-surface', 'font-semibold');
+      navTopics.classList.remove('text-on-surface-variant');
+
+      // Unset dashboard pill if present
+      const pillDash = navDashboard.querySelector('div');
+      if (pillDash) {
+        pillDash.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      }
+      navDashboard.classList.remove('text-on-surface', 'font-semibold');
+      navDashboard.classList.add('text-on-surface-variant');
+    }
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="[&amp;&gt;div]:bg-secondary-container [&amp;&gt;div]:text-on-secondary-container text-on-surface font-semibold"><div class="h-20 px-space-md flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-colors group" data-path="dashboard" href="#"><div class="w-16 h-8 rounded-full flex items-center justify-center mb-1 transition-all"><span class="material-symbols-outlined text-[24px]">dashboard</span></div><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-colors group" data-path="topics" href="#"><div class="w-16 h-8 rounded-full flex items-center justify-center mb-1 transition-all"><span class="material-symbols-outlined text-[24px]">menu_book</span></div><span class="font-label-md text-label-md">Topics</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-colors group" data-path="profile" href="#"><div class="w-16 h-8 rounded-full flex items-center justify-center mb-1 transition-all"><span class="material-symbols-outlined text-[24px]">account_circle</span></div><span class="font-label-md text-label-md">Profile</span></a></div></nav></body></html>

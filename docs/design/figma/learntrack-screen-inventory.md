@@ -1,9 +1,9 @@
 # LearnTrack — Screen Inventory
 
 **Platform:** Android (Jetpack Compose, Material 3)
-**Figma file:** LearnTrack — UI Designs _(URL to be filled after manual Figma setup — do not fabricate)_
+**Figma file:** [LearnTrack — UI Designs](https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM/LearnTrack-%E2%80%94-UI-Designs?node-id=1-2)
 **Version:** 1.0
-**Status:** Pending Figma file creation
+**Status:** ✅ File created — screens pending population
 
 ---
 
