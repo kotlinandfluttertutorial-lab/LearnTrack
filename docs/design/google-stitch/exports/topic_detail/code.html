@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "on-tertiary": "#ffffff",
+        "on-secondary-fixed": "#002204",
+        "on-primary-container": "#dae5ff",
+        "secondary": "#1b6d24",
+        "error-container": "#ffdad6",
+        "on-secondary-fixed-variant": "#005312",
+        "on-background": "#1b1c1c",
+        "surface-container-lowest": "#ffffff",
+        "secondary-container": "#a0f399",
+        "surface-container": "#efeded",
+        "on-primary-fixed-variant": "#00468c",
+        "tertiary-fixed": "#ffdcc7",
+        "surface-bright": "#fbf9f9",
+        "inverse-surface": "#303031",
+        "surface-container-highest": "#e3e2e2",
+        "error": "#ba1a1a",
+        "surface": "#fbf9f9",
+        "tertiary": "#7d3c00",
+        "inverse-primary": "#a9c7ff",
+        "secondary-fixed": "#a3f69c",
+        "on-secondary": "#ffffff",
+        "surface-container-low": "#f5f3f3",
+        "on-tertiary-fixed-variant": "#723600",
+        "surface-container-high": "#e9e8e7",
+        "tertiary-container": "#a24f00",
+        "inverse-on-surface": "#f2f0f0",
+        "on-surface": "#1b1c1c",
+        "primary-fixed": "#d6e3ff",
+        "on-secondary-container": "#217128",
+        "on-tertiary-fixed": "#311300",
+        "surface-variant": "#e3e2e2",
+        "surface-tint": "#005db7",
+        "primary-container": "#1565c0",
+        "primary-fixed-dim": "#a9c7ff",
+        "on-primary": "#ffffff",
+        "tertiary-fixed-dim": "#ffb787",
+        "outline-variant": "#c2c6d4",
+        "background": "#fbf9f9",
+        "on-primary-fixed": "#001b3d",
+        "on-tertiary-container": "#ffdecc",
+        "on-surface-variant": "#424752",
+        "primary": "#004d99",
+        "secondary-fixed-dim": "#88d982",
+        "outline": "#727783",
+        "on-error-container": "#93000a",
+        "surface-dim": "#dbdad9",
+        "on-error": "#ffffff"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-lg": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "gutter": "1rem",
+        "margin": "1rem",
+        "space-md": "1rem",
+        "space-xl": "2rem"
+      },
+      "fontFamily": {
+        "body-md": ["Inter"],
+        "body-lg": ["Inter"],
+        "title-md": ["Inter"],
+        "headline-sm": ["Inter"],
+        "title-lg": ["Inter"],
+        "label-sm": ["Inter"],
+        "label-lg": ["Inter"],
+        "body-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "title-sm": ["Inter"],
+        "label-md": ["Inter"]
+      },
+      "fontSize": {
+        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+        "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+        "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "0px", "fontWeight": "600"}],
+        "title-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "0px", "fontWeight": "600"}],
+        "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+        "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.4px", "fontWeight": "400"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "0px", "fontWeight": "700"}],
+        "title-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+      }
+    }
+  }
+}</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-6 px-margin flex items-center justify-between text-on-surface select-none"><span class="font-label-sm text-label-sm font-semibold tracking-tight">9:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[16px]">battery_full</span></div></div><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><h1 class="font-title-lg text-title-lg text-on-surface truncate">Dashboard</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[24px]">search</span></button><button aria-label="More options" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[24px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs flex-shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-22 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl gap-space-lg">
+<!-- Top App Navigation Bar (In-page Android Context Bar) -->
+<div class="flex items-center justify-between py-space-xs -mx-margin px-margin bg-surface">
+<div class="flex items-center gap-space-xs min-w-0">
+<button aria-label="Back to Topics" class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container transition-colors active:scale-95 flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">AI &amp; Python Course</span>
+<h2 class="font-title-md text-title-md text-on-surface truncate">Neural Network Architectures &amp; Optimization</h2>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<button aria-label="Bookmark Topic" class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" id="bookmarkBtn" type="button">
+<span class="material-symbols-outlined text-[24px]" id="bookmarkIcon">bookmark_border</span>
+</button>
+<button aria-label="More options" class="w-12 h-12 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Main Topic Hero Card -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden p-space-md gap-space-md">
+<!-- Image Accent -->
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Futuristic glowing 3D neural network computational graph with interconnected luminous nodes, floating tensors, and sleek digital gradient paths in electric deep blue, cobalt, and cyan over a modern dark ambient workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZjQHlofR2Vmxy87-RK-7Zk9JBVGgydyAb-hhMCa-nl6zYZm1_ipI3gQ1rCJLeRmSAaWK4oKplgrAOVraH9z6YQnMPu5aQhsMKueaMUWrwOgHLWsQAlE6WwuJGdCOt5FMFigjpqa5UZsaAA-oBAikvmXouLvsvUElHPfGsROqwJjujy5sbvFy1o586Ypk59uM9_r38dUEQ9JvqJUeI2dTAarN1-CHJs06CXes6LA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">school</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Deep Learning Foundations</span>
+</div>
+<div class="absolute bottom-space-sm right-space-sm px-space-sm py-0.5 rounded-full bg-surface-container-lowest/90 font-label-sm text-label-sm text-on-surface-variant">
+        Milestone 2 of 4
+      </div>
+</div>
+<!-- Title and Primary Status -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold tracking-wider uppercase mb-1">Topic 23</span>
+<h1 class="font-title-lg text-title-lg text-on-surface font-bold leading-tight">Neural Network Architectures &amp; Optimization</h1>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-outline flex-shrink-0" id="topicStatusGlyph">
+<span class="material-symbols-outlined text-[24px]">schedule</span>
+</div>
+</div>
+<!-- Status & Metadata Chips -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-medium" id="statusBadge">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span id="statusBadgeText">Not Started</span>
+</div>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">pin</span>
+        Topic 23 of 41
+      </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+        45 mins
+      </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-medium">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+        Module 3: Neural Networks
+      </span>
+</div>
+<!-- Primary Action CTA -->
+<div class="pt-space-xs">
+<button class="w-full h-11 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-all hover:bg-primary-container" id="startTopicBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span id="startTopicBtnLabel">Mark as Started</span>
+</button>
+</div>
+</div>
+<!-- Interactive Inspector Toggle for Topic 22 State (Completed Comparison) -->
+<div class="flex items-center justify-between p-space-sm px-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Preview Status Transitions</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Toggle Topic 22 (Done) vs 23</span>
+</div>
+</div>
+<button class="h-8 px-3 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md font-medium hover:bg-surface-variant transition-colors flex items-center gap-1 flex-shrink-0" id="toggleStateVariantBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span id="toggleBtnText">View Completed State</span>
+</button>
+</div>
+<!-- Specification & Course Syllabus Overview -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl shadow-sm p-space-md gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">feed</span>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Topic Specification</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono bg-surface-container px-2 py-0.5 rounded-full">ID: topic_23</span>
+</div>
+<!-- Description -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Explore forward propagation, loss functions, stochastic gradient descent, and adaptive optimizers (Adam, RMSProp) configured for PyTorch deep neural models.
+    </p>
+<!-- Detailed Learning Goals Bento -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="flex flex-col p-space-sm bg-surface-container-low rounded-lg gap-1">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">functions</span>
+<span class="font-label-sm text-label-sm font-semibold">Loss &amp; Gradients</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cross-entropy, MSE &amp; autograd mechanics</span>
+</div>
+<div class="flex flex-col p-space-sm bg-surface-container-low rounded-lg gap-1">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm font-semibold">Optimizers</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Adam, AdamW, and learning rate scheduling</span>
+</div>
+</div>
+<!-- Prerequisites -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Course Prerequisites</span>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Topic 22: Asynchronous Python &amp; Concurrency</span>
+<span class="font-label-sm text-label-sm text-on-secondary-container font-semibold">Completed ✓</span>
+</div>
+</div>
+<button aria-label="Review Topic 22" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- State Variant Showcase Tabs (Interactive Exploration) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">System State Variations</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tap to simulate</span>
+</div>
+<!-- State Segmented Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 select-none">
+<button class="variant-pill px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-medium flex-shrink-0 transition-colors" data-variant-tab="default" type="button">
+        Default Normal
+      </button>
+<button class="variant-pill px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-medium flex-shrink-0 transition-colors" data-variant-tab="loading" type="button">
+        Skeleton Loader
+      </button>
+<button class="variant-pill px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-medium flex-shrink-0 transition-colors" data-variant-tab="error" type="button">
+        Load Error (500)
+      </button>
+<button class="variant-pill px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-medium flex-shrink-0 transition-colors" data-variant-tab="not-found" type="button">
+        Not Found (404)
+      </button>
+</div>
+<!-- Variant Containers -->
+<div class="w-full" id="stateContainer">
+<!-- 1. Default Preview (Mini Stats) -->
+<div class="variant-view flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-sm gap-space-xs" id="variant-default">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Topic Practice Lab</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Jupyter Ready</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Includes an interactive PyTorch notebook: <code>03_optimization_backprop.ipynb</code> with automated grading checks.
+        </p>
+</div>
+<!-- 2. Skeleton Loading State -->
+<div class="variant-view hidden flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-sm gap-space-md animate-pulse" id="variant-loading">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-high"></div>
+<div class="flex flex-col gap-2 flex-1">
+<div class="h-4 bg-surface-container-high rounded w-3/4"></div>
+<div class="h-3 bg-surface-container-high rounded w-1/3"></div>
+</div>
+</div>
+<div class="h-16 bg-surface-container-high rounded-lg w-full"></div>
+<div class="flex gap-space-xs">
+<div class="h-8 bg-surface-container-high rounded-full w-24"></div>
+<div class="h-8 bg-surface-container-high rounded-full w-20"></div>
+<div class="h-8 bg-surface-container-high rounded-full w-28"></div>
+</div>
+</div>
+<!-- 3. Error State Card -->
+<div class="variant-view hidden flex flex-col items-center text-center p-space-md rounded-xl bg-error-container text-on-error-container shadow-sm gap-space-sm" id="variant-error">
+<div class="w-12 h-12 rounded-full bg-error text-on-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">cloud_off</span>
+</div>
+<h4 class="font-title-md text-title-md font-bold">Could not load topic details</h4>
+<p class="font-body-sm text-body-sm max-w-xs">
+          Network sync failed while retrieving PyTorch laboratory metadata. Please verify your connection.
+        </p>
+<button class="mt-space-xs h-10 px-5 rounded-full bg-error text-on-error font-label-md text-label-md font-semibold flex items-center gap-2 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+          Retry Connection
+        </button>
+</div>
+<!-- 4. Not Found State Card -->
+<div class="variant-view hidden flex flex-col items-center text-center p-space-md rounded-xl bg-surface-container-lowest shadow-sm gap-space-sm" id="variant-not-found">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">search_off</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Topic Not Found</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+          The requested identifier <code class="bg-surface-container px-1 rounded">topic_23_archived</code> does not exist in this course cohort.
+        </p>
+<button class="mt-space-xs h-10 px-5 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold flex items-center gap-2 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+          Return to Syllabus
+        </button>
+</div>
+</div>
+</div>
+<!-- Bottom Topic Navigation Bar (Previous & Next Controls) -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider px-1">Syllabus Sequence</span>
+<div class="flex items-center justify-between gap-space-sm p-space-sm bg-surface-container-lowest rounded-xl shadow-sm">
+<!-- Previous Topic -->
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-surface-container text-left min-w-0 flex-1 group transition-colors" href="#">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Previous</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate group-hover:text-primary">Topic 22: Async Python</span>
+</div>
+</a>
+<!-- Vertical Divider using spacing -->
+<div class="w-[1px] h-8 bg-outline-variant flex-shrink-0"></div>
+<!-- Next Topic -->
+<a class="flex items-center justify-end gap-2 p-2 rounded-lg hover:bg-surface-container text-right min-w-0 flex-1 group transition-colors" href="#">
+<div class="flex flex-col min-w-0 items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Next</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate group-hover:text-primary">Topic 24: CNNs for Vision</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<script>
+  (function initTopicDetailInteractions() {
+    // 1. Bookmark Toggle
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    const bookmarkIcon = document.getElementById('bookmarkIcon');
+    let isBookmarked = false;
+    if (bookmarkBtn && bookmarkIcon) {
+      bookmarkBtn.addEventListener('click', () => {
+        isBookmarked = !isBookmarked;
+        bookmarkIcon.textContent = isBookmarked ? 'bookmark' : 'bookmark_border';
+        bookmarkIcon.classList.toggle('text-primary', isBookmarked);
+      });
+    }
+
+    // 2. Mark as Started / Toggle
+    const startTopicBtn = document.getElementById('startTopicBtn');
+    const startLabel = document.getElementById('startTopicBtnLabel');
+    const statusBadge = document.getElementById('statusBadge');
+    const statusBadgeText = document.getElementById('statusBadgeText');
+    const statusGlyph = document.getElementById('topicStatusGlyph');
+    let currentState = 'not_started'; // 'not_started', 'in_progress', 'completed'
+
+    function updateTopicUI(state) {
+      currentState = state;
+      if (state === 'in_progress') {
+        startLabel.textContent = 'Continue Practice';
+        statusBadgeText.textContent = 'In Progress';
+        statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-medium';
+        statusGlyph.className = 'w-12 h-12 rounded-full bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0';
+        statusGlyph.innerHTML = '<span class="material-symbols-outlined text-[24px]">hourglass_top</span>';
+      } else if (state === 'completed') {
+        startLabel.textContent = 'Review Topic (Completed)';
+        statusBadgeText.textContent = 'Completed';
+        statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold';
+        statusGlyph.className = 'w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0';
+        statusGlyph.innerHTML = '<span class="material-symbols-outlined text-[24px]">check_circle</span>';
+      } else {
+        startLabel.textContent = 'Mark as Started';
+        statusBadgeText.textContent = 'Not Started';
+        statusBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-medium';
+        statusGlyph.className = 'w-12 h-12 rounded-full bg-surface-container text-outline flex items-center justify-center flex-shrink-0';
+        statusGlyph.innerHTML = '<span class="material-symbols-outlined text-[24px]">schedule</span>';
+      }
+    }
+
+    if (startTopicBtn) {
+      startTopicBtn.addEventListener('click', () => {
+        if (currentState === 'not_started') {
+          updateTopicUI('in_progress');
+        } else if (currentState === 'in_progress') {
+          updateTopicUI('completed');
+        } else {
+          updateTopicUI('not_started');
+        }
+      });
+    }
+
+    // 3. Topic 22 Completed Comparison Toggle
+    const toggleStateBtn = document.getElementById('toggleStateVariantBtn');
+    const toggleBtnText = document.getElementById('toggleBtnText');
+    let showingTopic22 = false;
+
+    if (toggleStateBtn && toggleBtnText) {
+      toggleStateBtn.addEventListener('click', () => {
+        showingTopic22 = !showingTopic22;
+        if (showingTopic22) {
+          updateTopicUI('completed');
+          toggleBtnText.textContent = 'Reset to Topic 23';
+        } else {
+          updateTopicUI('not_started');
+          toggleBtnText.textContent = 'View Completed State';
+        }
+      });
+    }
+
+    // 4. State Variations Showcase Pills
+    const variantPills = document.querySelectorAll('[data-variant-tab]');
+    const views = {
+      'default': document.getElementById('variant-default'),
+      'loading': document.getElementById('variant-loading'),
+      'error': document.getElementById('variant-error'),
+      'not-found': document.getElementById('variant-not-found')
+    };
+
+    variantPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const target = pill.getAttribute('data-variant-tab');
+        
+        // Update pill appearances
+        variantPills.forEach(p => {
+          p.classList.remove('bg-primary', 'text-on-primary');
+          p.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        pill.classList.add('bg-primary', 'text-on-primary');
+
+        // Toggle Views
+        Object.entries(views).forEach(([key, el]) => {
+          if (el) {
+            if (key === target) {
+              el.classList.remove('hidden');
+            } else {
+              el.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="[&amp;&gt;div]:bg-secondary-container [&amp;&gt;div]:text-on-secondary-container text-on-surface font-semibold"><div class="h-20 px-space-md flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-colors group" data-path="dashboard" href="#"><div class="w-16 h-8 rounded-full flex items-center justify-center mb-1 transition-all"><span class="material-symbols-outlined text-[24px]">dashboard</span></div><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-colors group" data-path="topics" href="#"><div class="w-16 h-8 rounded-full flex items-center justify-center mb-1 transition-all"><span class="material-symbols-outlined text-[24px]">menu_book</span></div><span class="font-label-md text-label-md">Topics</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[48px] py-1 text-on-surface-variant transition-colors group" data-path="profile" href="#"><div class="w-16 h-8 rounded-full flex items-center justify-center mb-1 transition-all"><span class="material-symbols-outlined text-[24px]">account_circle</span></div><span class="font-label-md text-label-md">Profile</span></a></div></nav></body></html>
