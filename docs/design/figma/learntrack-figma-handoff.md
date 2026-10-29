@@ -55,6 +55,11 @@ This is the **authoritative reference design** — inspected via MCP and confirm
 2. In the same **LearnTrack** project, create a new **Design File** named **LearnTrack — Design System**.
 3. Record the URL here once created.
 
+> ✅ **Done — October 28, 2026:** Design System file created via Figma MCP.
+> **URL:** https://www.figma.com/design/AbG7UxbofJuAvBFCcZW0pv
+> **File key:** `AbG7UxbofJuAvBFCcZW0pv`
+> **Pages:** Cover + Color Tokens · Typography + Spacing + Elevation · Components
+
 ### 1.2 Import Stitch Designs
 
 If Google Stitch exported images or a plugin-compatible file:

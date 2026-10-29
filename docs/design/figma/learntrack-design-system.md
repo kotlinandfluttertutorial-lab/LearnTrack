@@ -2,7 +2,16 @@
 
 **Platform:** Android (Jetpack Compose, Material 3)
 **Color palette status:** ✅ Verified — extracted from Figma node `4:3` (Course Progress Dark Mode) via MCP on October 28, 2026. Values below supersede the original proposed palette.
-**Figma file:** [LearnTrack — UI Designs](https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM/LearnTrack-%E2%80%94-UI-Designs) — file key `5dEMGt9iynTXgVGqjxd9IM`, MCP-accessible
+**Figma Design System file:** [LearnTrack — Design System](https://www.figma.com/design/AbG7UxbofJuAvBFCcZW0pv) — file key `AbG7UxbofJuAvBFCcZW0pv` ✅ Created October 28, 2026
+**Figma UI Designs file:** [LearnTrack — UI Designs](https://www.figma.com/design/5dEMGt9iynTXgVGqjxd9IM/LearnTrack-%E2%80%94-UI-Designs) — file key `5dEMGt9iynTXgVGqjxd9IM`
+
+### Design System File Pages (Starter plan — 3 pages)
+
+| Page | Contents |
+|---|---|
+| Page 1: Cover + Color Tokens | Cover frame, 20 color swatches (light mode, dark mode, semantic status, warning/error) |
+| Page 2: Typography + Spacing + Elevation | Full type scale table with samples, spacing tokens with visual bars, shape tokens, elevation levels |
+| Page 3: Components | StatusBadge, TopicRow, ProgressHeroCard (default/loading/error), FilterChip, WarningBanner, naming conventions |
 
 ---
 
